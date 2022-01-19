@@ -1,5 +1,7 @@
 from random import sample
 
+# RODADAS (<= 3) <- PARTIDAS (12) <- JOGO (1)
+
 # PROBLEMAS:
 # - TODA PARTIDA A MANILHA É A MESMA
 # - O CÓDIGO QUEBRA ANTES DA PARTIDA TERMINAR (PRÓXIMO AO SCORE 6)
@@ -14,8 +16,6 @@ from random import sample
 
 cartas_valor = ('4', '5', '6', '7', 'Q', 'J', 'K', 'A', '2', '3')
 cartas_naipe = ('O', 'E', 'C', 'P')
-
-# RODADAS (<= 3) <- PARTIDAS (12) <- JOGO (1)
 
 
 class Game:
@@ -185,9 +185,13 @@ class Game:
         return playerN_choice
 
 
-# Principal
-n = int(input('\n\033[1;33mQual a quantidade de jogadores?\033[m '))
-game = Game(n)
-print(f'\n\033[1;32mTombo: {game.vira()}\033[m')
-print(f'\033[1;34mManilhas: {game.manilha()}\033[m\n')
-game.partidas()
+def main():
+    n = int(input('\n\033[1;33mQual a quantidade de jogadores?\033[m '))
+    game = Game(n)
+    print(f'\n\033[1;32mTombo: {game.vira()}\033[m')
+    print(f'\033[1;34mManilhas: {game.manilha()}\033[m\n')
+    game.partidas()
+
+
+if __name__ == '__main__':
+    main()
